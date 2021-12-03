@@ -1,4 +1,4 @@
-with open('day3input.txt', newline='') as input:
+with open('day3input.txt') as input:
     report = input.read().splitlines()
 
 oxy = report[:]
