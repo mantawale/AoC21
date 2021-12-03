@@ -14,8 +14,7 @@ while len(oxy) > 1:
             count += 1
         else:
             count -= 1
-    
-    
+   
     if count >= 0:
         bitcheck = 1
 
@@ -35,8 +34,7 @@ while len(carb) > 1:
             count += 1
         else:
             count -= 1
-    
-    
+   
     if count < 0:
         bitcheck = 1
 
@@ -44,6 +42,3 @@ while len(carb) > 1:
     carbcursor += 1
 
 print(int(oxy[0],2)*int(carb[0],2))
-
-
-
