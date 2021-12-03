@@ -6,8 +6,8 @@ def interpret_report(testlist, criteria):
     cursor = 0
 
     while cursor < len(testlist[0]):
+        
         count = 0
-
         for i in testlist:
             if int(i[cursor]) == 1:
                 count += 1
