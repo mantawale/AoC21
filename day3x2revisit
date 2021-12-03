@@ -1,0 +1,32 @@
+with open('day3input.txt') as input:
+    report = input.read().splitlines()
+
+def answer(testlist,criteria):
+    cursor = 0
+
+    while len(testlist) > 1:
+
+        count = 0
+        bitcheck = 0
+
+        for i in testlist:
+            if int(i[cursor]) == 1:
+                count += 1
+            else:
+                count -= 1
+     
+        if count >= 0:
+            bitcheck = 1
+
+        if criteria == 'mc':
+            testlist[:] = (x for x in testlist if int(x[cursor]) == bitcheck)
+        if criteria == 'lc':
+            testlist[:] = (x for x in testlist if int(x[cursor]) != bitcheck)
+        cursor += 1
+    
+    return int(testlist[0],2)
+
+oxy = report[:]
+carb = report[:]
+
+print(answer(oxy, 'mc')*answer(carb, 'lc'))
