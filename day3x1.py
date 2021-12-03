@@ -1,33 +1,30 @@
 with open('day3input.txt') as input:
     report = input.read().splitlines()
 
-cursor = 0
-bitcheck = []
+def interpret_report(testlist, criteria):
+    ratinglist = []
+    cursor = 0
 
-while cursor < len(report[0]):
-    count = 0
+    while cursor < len(testlist[0]):
+        count = 0
 
-    for i in report:
-        if int(i[cursor]) == 1:
-            count += 1
-        else:
-            count -= 1
-    
-    bitcheck.append(count)
-    cursor += 1
+        for i in testlist:
+            if int(i[cursor]) == 1:
+                count += 1
+            else:
+                count -= 1
 
-gammalist = []
-epsilonlist = []
+        bitcheck = 0
+        if count > 1:
+            bitcheck = 1
 
-for i in bitcheck:
-    if  i > 0:
-        gammalist.append('1')
-        epsilonlist.append('0')
-    else:
-        gammalist.append('0')
-        epsilonlist.append('1')
+        if criteria == 'gamma':
+            ratinglist.append(str(bitcheck))
+        if criteria == 'epsilon':
+            ratinglist.append(str(abs(bitcheck - 1)))
 
-gamma = int(''.join(gammalist), 2)
-epsilon = int(''.join(epsilonlist), 2)
+        cursor += 1
 
-print(gamma*epsilon)
+    return int(''.join(ratinglist), 2)
+
+print(interpret_report(report, 'gamma')*interpret_report(report, 'epsilon'))
