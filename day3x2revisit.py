@@ -17,10 +17,10 @@ def answer(testlist,criteria):  # return decimal int by applying Day 3 puzzle cr
         if count >= 0:  # set comparison value for applying Day 3 puzzle criteria to input list
             bitcheck = 1
 
-        if criteria == 'mc': # applying criteria for most common bit value
+        if criteria == 'mc': # apply criteria for most common bit value
             testlist[:] = (x for x in testlist if int(x[cursor]) == bitcheck)
             
-        if criteria == 'lc': # applying criteria for least common bit value
+        if criteria == 'lc': # apply criteria for least common bit value
             testlist[:] = (x for x in testlist if int(x[cursor]) != bitcheck)
             
         cursor += 1
