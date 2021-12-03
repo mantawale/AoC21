@@ -1,7 +1,7 @@
 with open('day3input.txt') as input:
     report = input.read().splitlines()
 
-def answer(testlist,criteria):
+def interpret_report(testlist,criteria):
     list = testlist[:]
     cursor = 0
 
@@ -27,4 +27,4 @@ def answer(testlist,criteria):
     
     return int(list[0],2)
 
-print(answer(report, 'oxygen')*answer(report, 'carbon'))
+print(interpret_report(report, 'oxygen')*interpret_report(report, 'carbon'))
