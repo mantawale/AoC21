@@ -8,14 +8,13 @@ def answer(testlist,criteria):
     while len(list) > 1:
 
         count = 0
-        bitcheck = 0
-
         for i in list:
             if int(i[cursor]) == 1:
                 count += 1
             else:
                 count -= 1
      
+        bitcheck = 0
         if count >= 0:
             bitcheck = 1 
 
