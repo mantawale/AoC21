@@ -5,7 +5,6 @@ def answer(testlist,criteria):
     cursor = 0
 
     while len(testlist) > 1:
-
         count = 0
         bitcheck = 0
 
@@ -22,6 +21,7 @@ def answer(testlist,criteria):
             testlist[:] = (x for x in testlist if int(x[cursor]) == bitcheck)
         if criteria == 'lc':
             testlist[:] = (x for x in testlist if int(x[cursor]) != bitcheck)
+            
         cursor += 1
     
     return int(testlist[0],2)
