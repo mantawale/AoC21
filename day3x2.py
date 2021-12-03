@@ -1,44 +1,30 @@
 with open('day3input.txt') as input:
     report = input.read().splitlines()
 
-oxy = report[:]
-oxycursor = 0
+def interpret_report(test_list, criteria):
+    list = test_list[:]
+    cursor = 0
 
-while len(oxy) > 1:
+    while len(list) > 1:
 
-    count = 0
-    bitcheck = 0
+        count = 0
+        for i in list:
+            if int(i[cursor]) == 1:
+                count += 1
+            else:
+                count -= 1
+     
+        bitcheck = 0
+        if count >= 0:
+            bitcheck = 1 
 
-    for i in oxy:
-        if int(i[oxycursor]) == 1:
-            count += 1
-        else:
-            count -= 1
-   
-    if count >= 0:
-        bitcheck = 1
+        if criteria == 'oxygen':
+            list[:] = (x for x in list if int(x[cursor]) == bitcheck)
+        if criteria == 'carbon':
+            list[:] = (x for x in list if int(x[cursor]) != bitcheck)
 
-    oxy[:] = (x for x in oxy if int(x[oxycursor]) == bitcheck)
-    oxycursor += 1
+        cursor += 1
+    
+    return int(list[0],2)
 
-carb = report[:]
-carbcursor = 0
-
-while len(carb) > 1:
-
-    count = 0
-    bitcheck = 0
-
-    for i in carb:
-        if int(i[carbcursor]) == 1:
-            count += 1
-        else:
-            count -= 1
-   
-    if count < 0:
-        bitcheck = 1
-
-    carb[:] = (y for y in carb if int(y[carbcursor]) == bitcheck)
-    carbcursor += 1
-
-print(int(oxy[0],2)*int(carb[0],2))
+print(interpret_report(report, 'oxygen')*interpret_report(report, 'carbon'))
