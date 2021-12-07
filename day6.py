@@ -17,7 +17,6 @@ def repro_cycle(population, time_scale):
         cycle_step[6] += population[0]
         
         population = [x for x in cycle_step]
-            
         time_scale -= 1
 
     return sum(population)
