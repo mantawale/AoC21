@@ -13,7 +13,7 @@ def analyze_signal(signal_set):
     
     return [zero, one, two, three, four, five, six, seven, eight, nine]
 
-def convert_output(signal, output_set):
+def interpret_output(signal, output_set):
     
     display = []
     for i in output_set:
@@ -30,7 +30,7 @@ def repair_displays(display_set):
 
     corrected_disps = []
     for x in range(0, len(signal_inputs)):
-        corrected_disps.append(convert_output(analyze_signal(signal_inputs[x]), display_outputs[x]))
+        corrected_disps.append(interpret_output(analyze_signal(signal_inputs[x]), display_outputs[x]))
     
     return corrected_disps
 
